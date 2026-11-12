@@ -1,53 +1,43 @@
-from fastapi import FastAPI, Form, File, UploadFile, Request
-from fastapi.staticfiles import StaticFiles
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
-# 数据库
 from database import engine, Base
+from models import StockBasic, StockHistory, StockFinancial, StockStrategyBacktest
+from routers import stock_router
 
 GLOBAL_PREFIX = "/api"
 
 app = FastAPI(
-    title="首页图片与服务接口",
-    version="1.0",
-    max_request_size=500 * 1024 * 1024
+    title="A股量化与高级分析系统后端",
+    version="1.0.0",
+    description="为 Electron 桌面端提供的高性能 A 股数据分析与回测接口",
 )
 
-# CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://www.ytfreeie.com",
-        "http://localhost:3000",
-        "http://localhost:8000",
-        "http://127.0.0.1:8000",
-    ],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# 静态目录
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-# 建表
+# 启动时自动在 stock_admin 中创建表
 Base.metadata.create_all(bind=engine)
 
+# 注册带后缀的股票路由
+app.include_router(stock_router.router, prefix=GLOBAL_PREFIX)
 
-@app.get("/", summary="首页")
+@app.get("/", summary="后端根目录")
 def root():
     return {
         "code": 200,
-        "message": "服务运行正常",
-        "document": "/docs"
+        "message": "A股分析系统后端服务运行正常",
+        "docs": "/docs"
     }
-
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(
-        app="main:app",
-        host="0.0.0.0",
-        port=8000,
-        reload=True
-    )
+    uvicorn.run(app="main:app", host="127.0.0.1", port=8000, reload=True)

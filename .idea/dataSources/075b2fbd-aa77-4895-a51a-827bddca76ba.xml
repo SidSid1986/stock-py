@@ -2,11 +2,11 @@
 <dataSource name="@localhost本地admin">
   <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.53">
     <root id="1">
+      <DefaultAuthPlugin>caching_sha2_password</DefaultAuthPlugin>
       <DefaultCasing>lower/lower</DefaultCasing>
       <DefaultEngine>InnoDB</DefaultEngine>
       <DefaultTmpEngine>InnoDB</DefaultTmpEngine>
-      <Grants>|root||root|localhost|ALLOW_NONEXISTENT_DEFINER|G
-|root||root|localhost|ALTER|G
+      <Grants>|root||root|localhost|ALTER|G
 |root||root|localhost|ALTER ROUTINE|G
 |root||root|localhost|APPLICATION_PASSWORD_ADMIN|G
 |root||mysql.infoschema|localhost|AUDIT_ABORT_EXEMPT|G
@@ -31,7 +31,6 @@
 |root||root|localhost|CREATE TEMPORARY TABLES|G
 |root||root|localhost|CREATE USER|G
 |root||root|localhost|CREATE VIEW|G
-|root||root|localhost|CREATE_SPATIAL_REFERENCE_SYSTEM|G
 |root||root|localhost|DELETE|G
 |root||root|localhost|DROP|G
 |root||root|localhost|DROP ROLE|G
@@ -44,7 +43,6 @@
 |root||mysql.sys|localhost|FIREWALL_EXEMPT|G
 |root||root|localhost|FIREWALL_EXEMPT|G
 |root||root|localhost|FLUSH_OPTIMIZER_COSTS|G
-|root||root|localhost|FLUSH_PRIVILEGES|G
 |root||root|localhost|FLUSH_STATUS|G
 |root||root|localhost|FLUSH_TABLES|G
 |root||root|localhost|FLUSH_USER_RESOURCES|G
@@ -55,7 +53,6 @@
 |root||root|localhost|INNODB_REDO_LOG_ENABLE|G
 |root||root|localhost|INSERT|G
 |root||root|localhost|LOCK TABLES|G
-|root||root|localhost|OPTIMIZE_LOCAL_TABLE|G
 |root||root|localhost|PASSWORDLESS_USER_ADMIN|G
 |root||mysql.session|localhost|PERSIST_RO_VARIABLES_ADMIN|G
 |root||root|localhost|PERSIST_RO_VARIABLES_ADMIN|G
@@ -75,7 +72,7 @@
 |root||root|localhost|SERVICE_CONNECTION_ADMIN|G
 |root||mysql.session|localhost|SESSION_VARIABLES_ADMIN|G
 |root||root|localhost|SESSION_VARIABLES_ADMIN|G
-|root||root|localhost|SET_ANY_DEFINER|G
+|root||root|localhost|SET_USER_ID|G
 |root||root|localhost|SHOW DATABASES|G
 |root||root|localhost|SHOW VIEW|G
 |root||root|localhost|SHOW_ROUTINE|G
@@ -91,14 +88,13 @@
 |root||root|localhost|SYSTEM_VARIABLES_ADMIN|G
 |root||root|localhost|TABLE_ENCRYPTION_ADMIN|G
 |root||root|localhost|TELEMETRY_LOG_ADMIN|G
-|root||root|localhost|TRANSACTION_GTID_TAG|G
 |root||root|localhost|TRIGGER|G
 |root||root|localhost|UPDATE|G
 |root||root|localhost|XA_RECOVER_ADMIN|G
 |root||root|localhost|grant option|G
 performance_schema|schema||mysql.session|localhost|SELECT|G
 sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
-      <ServerVersion>9.3.0</ServerVersion>
+      <ServerVersion>8.0.45</ServerVersion>
     </root>
     <collation id="2" parent="1" name="armscii8_bin">
       <Charset>armscii8</Charset>
@@ -1002,7 +998,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     <schema id="288" parent="1" name="fastapi_admin">
       <AutoIntrospectionLevel>3</AutoIntrospectionLevel>
       <LastIntrospectionLevel>3</LastIntrospectionLevel>
-      <LastIntrospectionLocalTimestamp>2026-04-09.03:21:23</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2026-11-12.14:40:41</LastIntrospectionLocalTimestamp>
       <CollationName>utf8mb4_general_ci</CollationName>
     </schema>
     <schema id="289" parent="1" name="information_schema">
@@ -1014,38 +1010,33 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     <schema id="291" parent="1" name="performance_schema">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="292" parent="1" name="sys">
+    <schema id="292" parent="1" name="rx_db">
+      <CollationName>utf8mb4_unicode_ci</CollationName>
+    </schema>
+    <schema id="293" parent="1" name="stock_admin">
+      <AutoIntrospectionLevel>3</AutoIntrospectionLevel>
+      <LastIntrospectionLevel>3</LastIntrospectionLevel>
+      <LastIntrospectionLocalTimestamp>2026-11-12.14:42:44</LastIntrospectionLocalTimestamp>
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </schema>
+    <schema id="294" parent="1" name="sys">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <user id="293" parent="1" name="mysql.infoschema">
+    <user id="295" parent="1" name="mysql.infoschema">
       <CanLogin>0</CanLogin>
       <Host>localhost</Host>
-      <Plugin>caching_sha2_password</Plugin>
     </user>
-    <user id="294" parent="1" name="mysql.session">
+    <user id="296" parent="1" name="mysql.session">
       <CanLogin>0</CanLogin>
       <Host>localhost</Host>
-      <Plugin>caching_sha2_password</Plugin>
     </user>
-    <user id="295" parent="1" name="mysql.sys">
+    <user id="297" parent="1" name="mysql.sys">
       <CanLogin>0</CanLogin>
       <Host>localhost</Host>
-      <Plugin>caching_sha2_password</Plugin>
     </user>
-    <user id="296" parent="1" name="root">
+    <user id="298" parent="1" name="root">
       <Host>localhost</Host>
-      <Plugin>caching_sha2_password</Plugin>
     </user>
-    <table id="297" parent="288" name="about_banner">
-      <DetailsLevel>3</DetailsLevel>
-      <Engine>InnoDB</Engine>
-      <CollationName>utf8mb4_general_ci</CollationName>
-    </table>
-    <table id="298" parent="288" name="about_step">
-      <DetailsLevel>3</DetailsLevel>
-      <Engine>InnoDB</Engine>
-      <CollationName>utf8mb4_general_ci</CollationName>
-    </table>
     <table id="299" parent="288" name="about_us">
       <DetailsLevel>3</DetailsLevel>
       <Engine>InnoDB</Engine>
@@ -1062,10 +1053,9 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
     <table id="302" parent="288" name="home_images">
-      <Comment>首页图片配置表</Comment>
       <DetailsLevel>3</DetailsLevel>
       <Engine>InnoDB</Engine>
-      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+      <CollationName>utf8mb4_general_ci</CollationName>
     </table>
     <table id="303" parent="288" name="industries">
       <DetailsLevel>3</DetailsLevel>
@@ -1077,942 +1067,1093 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="305" parent="288" name="process">
+    <table id="305" parent="288" name="robots">
       <DetailsLevel>3</DetailsLevel>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="306" parent="288" name="robots">
+    <table id="306" parent="288" name="service_contents">
       <DetailsLevel>3</DetailsLevel>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="307" parent="288" name="service_contents">
+    <table id="307" parent="288" name="solutions">
       <DetailsLevel>3</DetailsLevel>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="308" parent="288" name="solutions">
+    <table id="308" parent="288" name="sport">
       <DetailsLevel>3</DetailsLevel>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="309" parent="288" name="sport">
+    <table id="309" parent="293" name="stock_basic">
       <DetailsLevel>3</DetailsLevel>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <column id="310" parent="297" name="id">
-      <AutoIncrement>44</AutoIncrement>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StoredType>int|0s</StoredType>
-    </column>
-    <column id="311" parent="297" name="img_url">
-      <Comment>轮播图图片URL</Comment>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-      <StoredType>varchar(500)|0s</StoredType>
-    </column>
-    <column id="312" parent="297" name="sort_order">
-      <Comment>排序权重</Comment>
-      <Position>3</Position>
-      <StoredType>int|0s</StoredType>
-    </column>
-    <column id="313" parent="297" name="create_time">
-      <Comment>创建时间</Comment>
-      <Position>4</Position>
-      <StoredType>datetime|0s</StoredType>
-    </column>
-    <column id="314" parent="297" name="update_time">
-      <Comment>最后更新时间</Comment>
-      <Position>5</Position>
-      <StoredType>datetime|0s</StoredType>
-    </column>
-    <index id="315" parent="297" name="PRIMARY">
-      <ColNames>id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="316" parent="297" name="ix_about_banner_id">
-      <ColNames>id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="317" parent="297" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <column id="318" parent="298" name="id">
-      <AutoIncrement>39</AutoIncrement>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StoredType>int|0s</StoredType>
-    </column>
-    <column id="319" parent="298" name="title">
-      <Comment>步骤标题/年份</Comment>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-      <StoredType>varchar(50)|0s</StoredType>
-    </column>
-    <column id="320" parent="298" name="img_url">
-      <Comment>步骤图片URL</Comment>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-      <StoredType>varchar(500)|0s</StoredType>
-    </column>
-    <column id="321" parent="298" name="sort_order">
-      <Comment>排序权重</Comment>
-      <Position>4</Position>
-      <StoredType>int|0s</StoredType>
-    </column>
-    <column id="322" parent="298" name="create_time">
-      <Comment>创建时间</Comment>
-      <Position>5</Position>
-      <StoredType>datetime|0s</StoredType>
-    </column>
-    <column id="323" parent="298" name="update_time">
-      <Comment>最后更新时间</Comment>
-      <Position>6</Position>
-      <StoredType>datetime|0s</StoredType>
-    </column>
-    <index id="324" parent="298" name="PRIMARY">
-      <ColNames>id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="325" parent="298" name="ix_about_step_id">
-      <ColNames>id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="326" parent="298" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <column id="327" parent="299" name="id">
+    <table id="310" parent="293" name="stock_financial">
+      <DetailsLevel>3</DetailsLevel>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </table>
+    <table id="311" parent="293" name="stock_history">
+      <DetailsLevel>3</DetailsLevel>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </table>
+    <table id="312" parent="293" name="stock_strategy_backtest">
+      <DetailsLevel>3</DetailsLevel>
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_general_ci</CollationName>
+    </table>
+    <column id="313" parent="299" name="id">
       <AutoIncrement>2</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="328" parent="299" name="cover_image">
+    <column id="314" parent="299" name="cover_image">
       <Comment>封面图片URL</Comment>
       <Position>2</Position>
       <StoredType>varchar(500)|0s</StoredType>
     </column>
-    <column id="329" parent="299" name="content">
+    <column id="315" parent="299" name="content">
       <Comment>关于我们富文本内容</Comment>
       <Position>3</Position>
       <StoredType>text|0s</StoredType>
     </column>
-    <column id="330" parent="299" name="update_time">
+    <column id="316" parent="299" name="update_time">
       <Comment>最后更新时间</Comment>
       <Position>4</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <index id="331" parent="299" name="PRIMARY">
+    <index id="317" parent="299" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="332" parent="299" name="ix_about_us_id">
+    <index id="318" parent="299" name="ix_about_us_id">
       <ColNames>id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="333" parent="299" name="PRIMARY">
+    <key id="319" parent="299" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="334" parent="300" name="id">
+    <column id="320" parent="300" name="id">
       <AutoIncrement>16</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="335" parent="300" name="name">
+    <column id="321" parent="300" name="name">
       <Comment>分类名称</Comment>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="336" parent="300" name="parent_id">
-      <Comment>父分类ID</Comment>
+    <column id="322" parent="300" name="parent_id">
+      <Comment>父分类ID (NULL表示一级分类)</Comment>
       <Position>3</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="337" parent="300" name="sort_order">
-      <Comment>排序权重</Comment>
+    <column id="323" parent="300" name="category_type">
+      <Comment>产品类型标识 (仅一级分类有效)</Comment>
       <Position>4</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <column id="324" parent="300" name="sort_order">
+      <Comment>排序权重</Comment>
+      <Position>5</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="338" parent="300" name="is_active">
+    <column id="325" parent="300" name="is_active">
       <Comment>是否启用</Comment>
-      <Position>5</Position>
+      <Position>6</Position>
       <StoredType>tinyint(1)|0s</StoredType>
     </column>
-    <column id="339" parent="300" name="create_time">
-      <Position>6</Position>
-      <StoredType>datetime|0s</StoredType>
-    </column>
-    <column id="340" parent="300" name="update_time">
+    <column id="326" parent="300" name="create_time">
+      <Comment>创建时间</Comment>
       <Position>7</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="341" parent="300" name="category_type">
+    <column id="327" parent="300" name="update_time">
+      <Comment>更新时间</Comment>
       <Position>8</Position>
-      <StoredType>varchar(50)|0s</StoredType>
+      <StoredType>datetime|0s</StoredType>
     </column>
-    <foreign-key id="342" parent="300" name="categories_ibfk_1">
+    <foreign-key id="328" parent="300" name="categories_ibfk_1">
       <ColNames>parent_id</ColNames>
       <OnDelete>cascade</OnDelete>
       <RefColNames>id</RefColNames>
       <RefTableName>categories</RefTableName>
     </foreign-key>
-    <index id="343" parent="300" name="PRIMARY">
+    <index id="329" parent="300" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="344" parent="300" name="ix_categories_id">
+    <index id="330" parent="300" name="ix_categories_id">
       <ColNames>id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="345" parent="300" name="idx_parent_sort">
+    <index id="331" parent="300" name="idx_parent_sort">
       <ColNames>parent_id
 sort_order</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="346" parent="300" name="ix_categories_parent_id">
+    <index id="332" parent="300" name="ix_categories_parent_id">
       <ColNames>parent_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="347" parent="300" name="idx_category_type">
+    <index id="333" parent="300" name="idx_category_type">
       <ColNames>category_type</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="348" parent="300" name="PRIMARY">
+    <index id="334" parent="300" name="ix_categories_category_type">
+      <ColNames>category_type</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="335" parent="300" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="349" parent="301" name="id">
+    <column id="336" parent="301" name="id">
       <AutoIncrement>14</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="350" parent="301" name="original_name">
+    <column id="337" parent="301" name="original_name">
       <Comment>原始文件名</Comment>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="351" parent="301" name="stored_name">
+    <column id="338" parent="301" name="stored_name">
       <Comment>存储文件名</Comment>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="352" parent="301" name="file_path">
+    <column id="339" parent="301" name="file_path">
       <Comment>文件访问路径</Comment>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>varchar(500)|0s</StoredType>
     </column>
-    <column id="353" parent="301" name="file_size">
+    <column id="340" parent="301" name="file_size">
       <Comment>文件大小(字节)</Comment>
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>bigint|0s</StoredType>
     </column>
-    <column id="354" parent="301" name="content_type">
+    <column id="341" parent="301" name="content_type">
       <Comment>文件MIME类型</Comment>
       <Position>6</Position>
       <StoredType>varchar(100)|0s</StoredType>
     </column>
-    <column id="355" parent="301" name="upload_time">
+    <column id="342" parent="301" name="upload_time">
       <Comment>上传时间</Comment>
       <Position>7</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <index id="356" parent="301" name="PRIMARY">
+    <index id="343" parent="301" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="357" parent="301" name="stored_name">
+    <index id="344" parent="301" name="stored_name">
       <ColNames>stored_name</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="358" parent="301" name="ix_file_records_id">
+    <index id="345" parent="301" name="ix_file_records_id">
       <ColNames>id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="359" parent="301" name="ix_file_records_original_name">
+    <index id="346" parent="301" name="ix_file_records_original_name">
       <ColNames>original_name</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="360" parent="301" name="PRIMARY">
+    <key id="347" parent="301" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="361" parent="301" name="stored_name">
+    <key id="348" parent="301" name="stored_name">
       <UnderlyingIndexName>stored_name</UnderlyingIndexName>
     </key>
-    <column id="362" parent="302" name="id">
-      <AutoIncrement>51</AutoIncrement>
-      <Comment>主键</Comment>
+    <column id="349" parent="302" name="id">
+      <AutoIncrement>5</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="363" parent="302" name="img_url">
+    <column id="350" parent="302" name="img_url">
       <Comment>图片地址</Comment>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="364" parent="302" name="sort">
-      <Comment>排序（数字越小越靠前）</Comment>
-      <DefaultExpression>0</DefaultExpression>
+    <column id="351" parent="302" name="sort">
+      <Comment>排序</Comment>
       <Position>3</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="365" parent="302" name="type">
-      <Comment>图片类型：banner/core/footer</Comment>
+    <column id="352" parent="302" name="type">
+      <Comment>类型</Comment>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>varchar(20)|0s</StoredType>
     </column>
-    <column id="366" parent="302" name="is_active">
+    <column id="353" parent="302" name="is_active">
       <Comment>是否启用</Comment>
-      <DefaultExpression>1</DefaultExpression>
       <Position>5</Position>
       <StoredType>tinyint(1)|0s</StoredType>
     </column>
-    <column id="367" parent="302" name="create_time">
+    <column id="354" parent="302" name="create_time">
       <Comment>创建时间</Comment>
-      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <Position>6</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="368" parent="302" name="original_name">
-      <Comment>图片名字</Comment>
+    <column id="355" parent="302" name="original_name">
+      <Comment>原始文件名</Comment>
       <Position>7</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <index id="369" parent="302" name="PRIMARY">
+    <index id="356" parent="302" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="370" parent="302" name="idx_type">
-      <ColNames>type</ColNames>
-      <Comment>按类型索引</Comment>
+    <index id="357" parent="302" name="ix_home_images_id">
+      <ColNames>id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="371" parent="302" name="PRIMARY">
+    <key id="358" parent="302" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="372" parent="303" name="id">
+    <column id="359" parent="303" name="id">
       <AutoIncrement>13</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="373" parent="303" name="name">
+    <column id="360" parent="303" name="name">
       <Comment>行业名称</Comment>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="374" parent="303" name="icon1">
+    <column id="361" parent="303" name="icon1">
       <Comment>行业图标URL1</Comment>
       <Position>3</Position>
       <StoredType>varchar(500)|0s</StoredType>
     </column>
-    <column id="375" parent="303" name="icon2">
+    <column id="362" parent="303" name="icon2">
       <Comment>行业图标URL2</Comment>
       <Position>4</Position>
       <StoredType>varchar(500)|0s</StoredType>
     </column>
-    <column id="376" parent="303" name="sort">
+    <column id="363" parent="303" name="sort">
       <Comment>排序权重</Comment>
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="377" parent="303" name="is_active">
+    <column id="364" parent="303" name="is_active">
       <Comment>是否启用</Comment>
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>tinyint(1)|0s</StoredType>
     </column>
-    <column id="378" parent="303" name="create_time">
+    <column id="365" parent="303" name="create_time">
       <Comment>创建时间</Comment>
       <Position>7</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="379" parent="303" name="update_time">
+    <column id="366" parent="303" name="update_time">
       <Comment>最后更新时间</Comment>
       <Position>8</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <index id="380" parent="303" name="PRIMARY">
+    <index id="367" parent="303" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="381" parent="303" name="ix_industries_name">
+    <index id="368" parent="303" name="ix_industries_name">
       <ColNames>name</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="382" parent="303" name="ix_industries_id">
+    <index id="369" parent="303" name="ix_industries_id">
       <ColNames>id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="383" parent="303" name="PRIMARY">
+    <key id="370" parent="303" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="384" parent="303" name="ix_industries_name">
+    <key id="371" parent="303" name="ix_industries_name">
       <UnderlyingIndexName>ix_industries_name</UnderlyingIndexName>
     </key>
-    <column id="385" parent="304" name="id">
+    <column id="372" parent="304" name="id">
       <AutoIncrement>27</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="386" parent="304" name="title">
+    <column id="373" parent="304" name="title">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>varchar(255)|0s</StoredType>
     </column>
-    <column id="387" parent="304" name="summary">
-      <NotNull>1</NotNull>
+    <column id="374" parent="304" name="summary">
       <Position>3</Position>
-      <StoredType>varchar(255)|0s</StoredType>
+      <StoredType>text|0s</StoredType>
     </column>
-    <column id="388" parent="304" name="content">
+    <column id="375" parent="304" name="content">
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StoredType>text|0s</StoredType>
     </column>
-    <column id="389" parent="304" name="cover_image">
+    <column id="376" parent="304" name="cover_image">
       <Position>5</Position>
       <StoredType>varchar(500)|0s</StoredType>
     </column>
-    <column id="390" parent="304" name="publish_date">
+    <column id="377" parent="304" name="publish_date">
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>date|0s</StoredType>
     </column>
-    <column id="391" parent="304" name="is_top">
+    <column id="378" parent="304" name="is_top">
       <Position>7</Position>
       <StoredType>tinyint(1)|0s</StoredType>
     </column>
-    <column id="392" parent="304" name="created_at">
+    <column id="379" parent="304" name="created_at">
       <Position>8</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="393" parent="304" name="updated_at">
+    <column id="380" parent="304" name="updated_at">
       <Position>9</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <index id="394" parent="304" name="PRIMARY">
+    <index id="381" parent="304" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="395" parent="304" name="ix_news_id">
+    <index id="382" parent="304" name="ix_news_id">
       <ColNames>id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="396" parent="304" name="ix_news_title">
+    <index id="383" parent="304" name="ix_news_title">
       <ColNames>title</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="397" parent="304" name="ix_news_is_top">
+    <index id="384" parent="304" name="ix_news_is_top">
       <ColNames>is_top</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="398" parent="304" name="PRIMARY">
+    <key id="385" parent="304" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="399" parent="305" name="id">
-      <AutoIncrement>1</AutoIncrement>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <StoredType>int|0s</StoredType>
-    </column>
-    <column id="400" parent="305" name="title">
-      <Comment>方案标题</Comment>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-      <StoredType>varchar(200)|0s</StoredType>
-    </column>
-    <column id="401" parent="305" name="cover1">
-      <Comment>封面图1 (主图)</Comment>
-      <Position>3</Position>
-      <StoredType>varchar(500)|0s</StoredType>
-    </column>
-    <column id="402" parent="305" name="cover2">
-      <Comment>封面图2 (副图/悬停图)</Comment>
-      <Position>4</Position>
-      <StoredType>varchar(500)|0s</StoredType>
-    </column>
-    <column id="403" parent="305" name="content">
-      <Comment>方案详情富文本内容</Comment>
-      <NotNull>1</NotNull>
-      <Position>5</Position>
-      <StoredType>text|0s</StoredType>
-    </column>
-    <column id="404" parent="305" name="is_active">
-      <Comment>是否启用</Comment>
-      <Position>6</Position>
-      <StoredType>tinyint(1)|0s</StoredType>
-    </column>
-    <column id="405" parent="305" name="sort">
-      <Comment>排序权重</Comment>
-      <Position>7</Position>
-      <StoredType>int|0s</StoredType>
-    </column>
-    <column id="406" parent="305" name="create_time">
-      <Comment>创建时间</Comment>
-      <Position>8</Position>
-      <StoredType>datetime|0s</StoredType>
-    </column>
-    <column id="407" parent="305" name="update_time">
-      <Comment>更新时间</Comment>
-      <Position>9</Position>
-      <StoredType>datetime|0s</StoredType>
-    </column>
-    <index id="408" parent="305" name="PRIMARY">
-      <ColNames>id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="409" parent="305" name="ix_process_id">
-      <ColNames>id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="410" parent="305" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <column id="411" parent="306" name="id">
+    <column id="386" parent="305" name="id">
       <AutoIncrement>22</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="412" parent="306" name="category_id">
+    <column id="387" parent="305" name="category_id">
       <Comment>所属分类ID (叶子节点)</Comment>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="413" parent="306" name="category_path">
+    <column id="388" parent="305" name="category_path">
       <Comment>分类路径快照</Comment>
       <Position>3</Position>
       <StoredType>varchar(200)|0s</StoredType>
     </column>
-    <column id="414" parent="306" name="robot_type">
-      <Comment>机器人类型</Comment>
-      <Position>4</Position>
-      <StoredType>varchar(255)|0s</StoredType>
-    </column>
-    <column id="415" parent="306" name="is_active">
+    <column id="389" parent="305" name="is_active">
       <Comment>是否上架</Comment>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>tinyint(1)|0s</StoredType>
+    </column>
+    <column id="390" parent="305" name="if_main">
+      <Comment>是否首页展示</Comment>
       <NotNull>1</NotNull>
       <Position>5</Position>
       <StoredType>tinyint(1)|0s</StoredType>
     </column>
-    <column id="416" parent="306" name="created_at">
+    <column id="391" parent="305" name="created_at">
       <Comment>创建时间</Comment>
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="417" parent="306" name="updated_at">
+    <column id="392" parent="305" name="updated_at">
       <Comment>更新时间</Comment>
       <NotNull>1</NotNull>
       <Position>7</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="418" parent="306" name="product_name">
+    <column id="393" parent="305" name="product_name">
       <Comment>产品名称</Comment>
       <NotNull>1</NotNull>
       <Position>8</Position>
       <StoredType>varchar(200)|0s</StoredType>
     </column>
-    <column id="419" parent="306" name="model_number">
+    <column id="394" parent="305" name="model_number">
       <Comment>产品型号</Comment>
       <NotNull>1</NotNull>
       <Position>9</Position>
       <StoredType>varchar(100)|0s</StoredType>
     </column>
-    <column id="420" parent="306" name="main_image_url">
-      <Comment>产品主图URL</Comment>
-      <Position>10</Position>
-      <StoredType>varchar(500)|0s</StoredType>
-    </column>
-    <column id="421" parent="306" name="robot_name">
-      <Comment>机器人型号标识</Comment>
+    <column id="395" parent="305" name="robot_type">
+      <Comment>机器人类型</Comment>
       <NotNull>1</NotNull>
-      <Position>11</Position>
-      <StoredType>varchar(100)|0s</StoredType>
-    </column>
-    <column id="422" parent="306" name="max_arm_span">
-      <Comment>最大臂展</Comment>
-      <Position>12</Position>
+      <Position>10</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="423" parent="306" name="max_weight">
-      <Comment>最大负载</Comment>
+    <column id="396" parent="305" name="main_image_url">
+      <Comment>产品主图URL</Comment>
+      <Position>11</Position>
+      <StoredType>varchar(500)|0s</StoredType>
+    </column>
+    <column id="397" parent="305" name="robot_name">
+      <Comment>机器人型号标识</Comment>
+      <NotNull>1</NotNull>
+      <Position>12</Position>
+      <StoredType>varchar(100)|0s</StoredType>
+    </column>
+    <column id="398" parent="305" name="max_arm_span">
+      <Comment>最大臂展</Comment>
       <Position>13</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="424" parent="306" name="switch_num">
-      <Comment>轴数</Comment>
+    <column id="399" parent="305" name="max_weight">
+      <Comment>最大负载</Comment>
       <Position>14</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="425" parent="306" name="weight">
-      <Comment>本体重量</Comment>
+    <column id="400" parent="305" name="switch_num">
+      <Comment>轴数</Comment>
       <Position>15</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="426" parent="306" name="perprecision">
-      <Comment>重复定位精度</Comment>
+    <column id="401" parent="305" name="weight">
+      <Comment>本体重量</Comment>
       <Position>16</Position>
-      <StoredType>text|0s</StoredType>
-    </column>
-    <column id="427" parent="306" name="ip_level">
-      <Comment>防护等级</Comment>
-      <Position>17</Position>
-      <StoredType>varchar(20)|0s</StoredType>
-    </column>
-    <column id="428" parent="306" name="ins_type">
-      <Comment>安装形式</Comment>
-      <Position>18</Position>
       <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="429" parent="306" name="drive_type">
-      <Comment>驱动方式</Comment>
-      <Position>19</Position>
-      <StoredType>varchar(100)|0s</StoredType>
-    </column>
-    <column id="430" parent="306" name="auth_support">
-      <Comment>支持认证</Comment>
-      <Position>20</Position>
-      <StoredType>varchar(200)|0s</StoredType>
-    </column>
-    <column id="431" parent="306" name="ins_require">
-      <Comment>安装条件</Comment>
-      <Position>21</Position>
+    <column id="402" parent="305" name="perprecision">
+      <Comment>重复定位精度</Comment>
+      <Position>17</Position>
       <StoredType>text|0s</StoredType>
     </column>
-    <column id="432" parent="306" name="remark">
-      <Comment>备注说明</Comment>
+    <column id="403" parent="305" name="ip_level">
+      <Comment>防护等级</Comment>
+      <Position>18</Position>
+      <StoredType>varchar(20)|0s</StoredType>
+    </column>
+    <column id="404" parent="305" name="ins_type">
+      <Comment>安装形式</Comment>
+      <Position>19</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <column id="405" parent="305" name="drive_type">
+      <Comment>驱动方式</Comment>
+      <Position>20</Position>
+      <StoredType>varchar(100)|0s</StoredType>
+    </column>
+    <column id="406" parent="305" name="auth_support">
+      <Comment>支持认证</Comment>
+      <Position>21</Position>
+      <StoredType>varchar(200)|0s</StoredType>
+    </column>
+    <column id="407" parent="305" name="ins_require">
+      <Comment>安装条件</Comment>
       <Position>22</Position>
       <StoredType>text|0s</StoredType>
     </column>
-    <column id="433" parent="306" name="detail_img">
-      <Comment>详情图片</Comment>
+    <column id="408" parent="305" name="remark">
+      <Comment>备注说明</Comment>
       <Position>23</Position>
+      <StoredType>text|0s</StoredType>
+    </column>
+    <column id="409" parent="305" name="detail_img">
+      <Comment>详情图片</Comment>
+      <Position>24</Position>
       <StoredType>varchar(500)|0s</StoredType>
     </column>
-    <column id="434" parent="306" name="if_main">
-      <Position>24</Position>
-      <StoredType>tinyint(1)|0s</StoredType>
-    </column>
-    <foreign-key id="435" parent="306" name="robots_ibfk_1">
+    <foreign-key id="410" parent="305" name="robots_ibfk_1">
       <ColNames>category_id</ColNames>
       <RefColNames>id</RefColNames>
       <RefTableName>categories</RefTableName>
     </foreign-key>
-    <index id="436" parent="306" name="PRIMARY">
+    <index id="411" parent="305" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="437" parent="306" name="ix_robots_id">
+    <index id="412" parent="305" name="ix_robots_id">
       <ColNames>id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="438" parent="306" name="idx_robot_category">
+    <index id="413" parent="305" name="idx_robot_category">
       <ColNames>category_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="439" parent="306" name="ix_robots_category_id">
+    <index id="414" parent="305" name="ix_robots_category_id">
       <ColNames>category_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="440" parent="306" name="idx_robot_active">
+    <index id="415" parent="305" name="idx_robot_active">
       <ColNames>is_active</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="441" parent="306" name="idx_robot_model">
+    <index id="416" parent="305" name="idx_robot_main">
+      <ColNames>if_main</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="417" parent="305" name="idx_robot_model">
       <ColNames>model_number</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="442" parent="306" name="PRIMARY">
+    <key id="418" parent="305" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="443" parent="307" name="id">
+    <column id="419" parent="306" name="id">
       <AutoIncrement>1</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="444" parent="307" name="content">
+    <column id="420" parent="306" name="content">
       <Position>2</Position>
       <StoredType>text|0s</StoredType>
     </column>
-    <column id="445" parent="307" name="updated_at">
-      <DefaultExpression>(now())</DefaultExpression>
+    <column id="421" parent="306" name="updated_at">
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <Position>3</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <index id="446" parent="307" name="PRIMARY">
+    <index id="422" parent="306" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="447" parent="307" name="ix_service_contents_id">
+    <index id="423" parent="306" name="ix_service_contents_id">
       <ColNames>id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="448" parent="307" name="PRIMARY">
+    <key id="424" parent="306" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="449" parent="308" name="id">
+    <column id="425" parent="307" name="id">
       <AutoIncrement>15</AutoIncrement>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="450" parent="308" name="fid">
+    <column id="426" parent="307" name="fid">
       <Comment>所属行业ID</Comment>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="451" parent="308" name="title">
+    <column id="427" parent="307" name="title">
       <Comment>方案标题</Comment>
       <NotNull>1</NotNull>
       <Position>3</Position>
       <StoredType>varchar(200)|0s</StoredType>
     </column>
-    <column id="452" parent="308" name="cover1">
+    <column id="428" parent="307" name="cover1">
       <Comment>封面图1 (主图)</Comment>
       <Position>4</Position>
       <StoredType>varchar(500)|0s</StoredType>
     </column>
-    <column id="453" parent="308" name="cover2">
+    <column id="429" parent="307" name="cover2">
       <Comment>封面图2 (副图/悬停图)</Comment>
       <Position>5</Position>
       <StoredType>varchar(500)|0s</StoredType>
     </column>
-    <column id="454" parent="308" name="content">
+    <column id="430" parent="307" name="content">
       <Comment>方案详情富文本内容</Comment>
       <NotNull>1</NotNull>
       <Position>6</Position>
       <StoredType>text|0s</StoredType>
     </column>
-    <column id="455" parent="308" name="is_active">
+    <column id="431" parent="307" name="is_active">
       <Comment>是否启用</Comment>
       <Position>7</Position>
       <StoredType>tinyint(1)|0s</StoredType>
     </column>
-    <column id="456" parent="308" name="sort">
+    <column id="432" parent="307" name="sort">
       <Comment>排序权重</Comment>
       <Position>8</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="457" parent="308" name="create_time">
+    <column id="433" parent="307" name="create_time">
       <Comment>创建时间</Comment>
       <Position>9</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="458" parent="308" name="update_time">
+    <column id="434" parent="307" name="update_time">
       <Comment>更新时间</Comment>
       <Position>10</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <foreign-key id="459" parent="308" name="solutions_ibfk_1">
+    <foreign-key id="435" parent="307" name="solutions_ibfk_1">
       <ColNames>fid</ColNames>
       <OnDelete>cascade</OnDelete>
       <RefColNames>id</RefColNames>
       <RefTableName>industries</RefTableName>
+    </foreign-key>
+    <index id="436" parent="307" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="437" parent="307" name="ix_solutions_id">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="438" parent="307" name="ix_solutions_fid">
+      <ColNames>fid</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="439" parent="307" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="440" parent="308" name="id">
+      <AutoIncrement>19</AutoIncrement>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="441" parent="308" name="category_id">
+      <Comment>所属分类ID (叶子节点)</Comment>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="442" parent="308" name="category_path">
+      <Comment>分类路径快照</Comment>
+      <Position>3</Position>
+      <StoredType>varchar(200)|0s</StoredType>
+    </column>
+    <column id="443" parent="308" name="is_active">
+      <Comment>是否上架</Comment>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StoredType>tinyint(1)|0s</StoredType>
+    </column>
+    <column id="444" parent="308" name="if_main">
+      <Comment>是否首页展示</Comment>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StoredType>tinyint(1)|0s</StoredType>
+    </column>
+    <column id="445" parent="308" name="created_at">
+      <Comment>创建时间</Comment>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <column id="446" parent="308" name="updated_at">
+      <Comment>更新时间</Comment>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <column id="447" parent="308" name="product_name">
+      <Comment>产品名称</Comment>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+      <StoredType>varchar(200)|0s</StoredType>
+    </column>
+    <column id="448" parent="308" name="model_number">
+      <Comment>产品型号</Comment>
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+      <StoredType>varchar(100)|0s</StoredType>
+    </column>
+    <column id="449" parent="308" name="robot_type">
+      <Comment>机器人类型</Comment>
+      <NotNull>1</NotNull>
+      <Position>10</Position>
+      <StoredType>varchar(50)|0s</StoredType>
+    </column>
+    <column id="450" parent="308" name="main_image_url">
+      <Comment>产品主图URL</Comment>
+      <Position>11</Position>
+      <StoredType>varchar(500)|0s</StoredType>
+    </column>
+    <column id="451" parent="308" name="name">
+      <Comment>控制器型号名称</Comment>
+      <NotNull>1</NotNull>
+      <Position>12</Position>
+      <StoredType>varchar(200)|0s</StoredType>
+    </column>
+    <column id="452" parent="308" name="detail">
+      <Comment>产品详情描述</Comment>
+      <Position>13</Position>
+      <StoredType>text|0s</StoredType>
+    </column>
+    <column id="453" parent="308" name="img">
+      <Comment>表单内上传的主图</Comment>
+      <Position>14</Position>
+      <StoredType>varchar(500)|0s</StoredType>
+    </column>
+    <column id="454" parent="308" name="line1">
+      <Comment>卖点1</Comment>
+      <Position>15</Position>
+      <StoredType>text|0s</StoredType>
+    </column>
+    <column id="455" parent="308" name="line2">
+      <Comment>卖点2</Comment>
+      <Position>16</Position>
+      <StoredType>text|0s</StoredType>
+    </column>
+    <column id="456" parent="308" name="line3">
+      <Comment>卖点3</Comment>
+      <Position>17</Position>
+      <StoredType>text|0s</StoredType>
+    </column>
+    <column id="457" parent="308" name="sport_pram">
+      <Comment>配件列表 (JSON)</Comment>
+      <Position>18</Position>
+      <StoredType>json|0s</StoredType>
+    </column>
+    <column id="458" parent="308" name="sport_pram_two">
+      <Comment>轴配置选项 (JSON)</Comment>
+      <Position>19</Position>
+      <StoredType>json|0s</StoredType>
+    </column>
+    <foreign-key id="459" parent="308" name="sport_ibfk_1">
+      <ColNames>category_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>categories</RefTableName>
     </foreign-key>
     <index id="460" parent="308" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="461" parent="308" name="ix_solutions_id">
+    <index id="461" parent="308" name="ix_sport_id">
       <ColNames>id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="462" parent="308" name="ix_solutions_fid">
-      <ColNames>fid</ColNames>
+    <index id="462" parent="308" name="idx_sport_category">
+      <ColNames>category_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="463" parent="308" name="PRIMARY">
+    <index id="463" parent="308" name="ix_sport_category_id">
+      <ColNames>category_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="464" parent="308" name="idx_sport_active">
+      <ColNames>is_active</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="465" parent="308" name="idx_sport_main">
+      <ColNames>if_main</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="466" parent="308" name="idx_sport_model">
+      <ColNames>model_number</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="467" parent="308" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="464" parent="309" name="id">
-      <AutoIncrement>19</AutoIncrement>
+    <column id="468" parent="309" name="id">
+      <AutoIncrement>5581</AutoIncrement>
+      <Comment>自增ID</Comment>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StoredType>int|0s</StoredType>
     </column>
-    <column id="465" parent="309" name="category_id">
-      <Comment>所属分类ID (叶子节点)</Comment>
+    <column id="469" parent="309" name="symbol">
+      <Comment>股票代码(如600519)</Comment>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StoredType>int|0s</StoredType>
+      <StoredType>varchar(20)|0s</StoredType>
     </column>
-    <column id="466" parent="309" name="category_path">
-      <Comment>分类路径快照</Comment>
+    <column id="470" parent="309" name="name">
+      <Comment>股票名称</Comment>
+      <NotNull>1</NotNull>
       <Position>3</Position>
-      <StoredType>varchar(200)|0s</StoredType>
+      <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="467" parent="309" name="robot_type">
-      <Comment>产品类型</Comment>
+    <column id="471" parent="309" name="market">
+      <Comment>市场类型(sh/sz/bj)</Comment>
       <Position>4</Position>
-      <StoredType>varchar(255)|0s</StoredType>
+      <StoredType>varchar(20)|0s</StoredType>
     </column>
-    <column id="468" parent="309" name="is_active">
-      <Comment>是否上架</Comment>
-      <NotNull>1</NotNull>
+    <column id="472" parent="309" name="industry">
+      <Comment>所属行业（用于行业板块横向对比分析）</Comment>
       <Position>5</Position>
-      <StoredType>tinyint(1)|0s</StoredType>
+      <StoredType>varchar(50)|0s</StoredType>
     </column>
-    <column id="469" parent="309" name="created_at">
-      <Comment>创建时间</Comment>
-      <NotNull>1</NotNull>
+    <column id="473" parent="309" name="list_date">
+      <Comment>上市日期（用于计算次新股或长期历史回测）</Comment>
       <Position>6</Position>
-      <StoredType>datetime|0s</StoredType>
+      <StoredType>date|0s</StoredType>
     </column>
-    <column id="470" parent="309" name="updated_at">
-      <Comment>更新时间</Comment>
-      <NotNull>1</NotNull>
+    <column id="474" parent="309" name="updated_at">
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
       <Position>7</Position>
       <StoredType>datetime|0s</StoredType>
     </column>
-    <column id="471" parent="309" name="product_name">
-      <Comment>产品名称</Comment>
-      <NotNull>1</NotNull>
-      <Position>8</Position>
-      <StoredType>varchar(200)|0s</StoredType>
-    </column>
-    <column id="472" parent="309" name="model_number">
-      <Comment>产品型号</Comment>
-      <NotNull>1</NotNull>
-      <Position>9</Position>
-      <StoredType>varchar(100)|0s</StoredType>
-    </column>
-    <column id="473" parent="309" name="main_image_url">
-      <Comment>产品主图URL</Comment>
-      <Position>10</Position>
-      <StoredType>varchar(500)|0s</StoredType>
-    </column>
-    <column id="474" parent="309" name="name">
-      <Comment>控制器型号名称</Comment>
-      <Position>11</Position>
-      <StoredType>varchar(200)|0s</StoredType>
-    </column>
-    <column id="475" parent="309" name="detail">
-      <Comment>产品详情描述</Comment>
-      <Position>12</Position>
-      <StoredType>text|0s</StoredType>
-    </column>
-    <column id="476" parent="309" name="img">
-      <Comment>表单内上传的主图</Comment>
-      <Position>13</Position>
-      <StoredType>varchar(500)|0s</StoredType>
-    </column>
-    <column id="477" parent="309" name="line1">
-      <Comment>卖点1</Comment>
-      <Position>14</Position>
-      <StoredType>text|0s</StoredType>
-    </column>
-    <column id="478" parent="309" name="line2">
-      <Comment>卖点2</Comment>
-      <Position>15</Position>
-      <StoredType>text|0s</StoredType>
-    </column>
-    <column id="479" parent="309" name="line3">
-      <Comment>卖点3</Comment>
-      <Position>16</Position>
-      <StoredType>text|0s</StoredType>
-    </column>
-    <column id="480" parent="309" name="sport_pram">
-      <Comment>配件列表 (JSON)</Comment>
-      <Position>17</Position>
-      <StoredType>json|0s</StoredType>
-    </column>
-    <column id="481" parent="309" name="sport_pram_two">
-      <Comment>轴配置选项 (JSON)</Comment>
-      <Position>18</Position>
-      <StoredType>json|0s</StoredType>
-    </column>
-    <column id="482" parent="309" name="if_main">
-      <Position>19</Position>
-      <StoredType>tinyint(1)|0s</StoredType>
-    </column>
-    <foreign-key id="483" parent="309" name="sport_ibfk_1">
-      <ColNames>category_id</ColNames>
-      <RefColNames>id</RefColNames>
-      <RefTableName>categories</RefTableName>
-    </foreign-key>
-    <index id="484" parent="309" name="PRIMARY">
+    <index id="475" parent="309" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="485" parent="309" name="ix_sport_id">
+    <index id="476" parent="309" name="ix_stock_basic_symbol">
+      <ColNames>symbol</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="477" parent="309" name="ix_stock_basic_industry">
+      <ColNames>industry</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="478" parent="309" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="479" parent="309" name="ix_stock_basic_symbol">
+      <UnderlyingIndexName>ix_stock_basic_symbol</UnderlyingIndexName>
+    </key>
+    <column id="480" parent="310" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <Comment>自增ID</Comment>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="481" parent="310" name="symbol">
+      <Comment>股票代码</Comment>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(20)|0s</StoredType>
+    </column>
+    <column id="482" parent="310" name="report_date">
+      <Comment>报告期（如 2023-12-31）</Comment>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>date|0s</StoredType>
+    </column>
+    <column id="483" parent="310" name="roe">
+      <Comment>净资产收益率(ROE)</Comment>
+      <Position>4</Position>
+      <StoredType>float|0s</StoredType>
+    </column>
+    <column id="484" parent="310" name="net_profit_growth">
+      <Comment>净利润同比增长率</Comment>
+      <Position>5</Position>
+      <StoredType>float|0s</StoredType>
+    </column>
+    <column id="485" parent="310" name="gross_profit_margin">
+      <Comment>销售毛利率</Comment>
+      <Position>6</Position>
+      <StoredType>float|0s</StoredType>
+    </column>
+    <column id="486" parent="310" name="debt_to_asset_ratio">
+      <Comment>资产负债率</Comment>
+      <Position>7</Position>
+      <StoredType>float|0s</StoredType>
+    </column>
+    <index id="487" parent="310" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
+      <Unique>1</Unique>
     </index>
-    <index id="486" parent="309" name="idx_sport_category">
-      <ColNames>category_id</ColNames>
+    <index id="488" parent="310" name="uix_symbol_report_date">
+      <ColNames>symbol
+report_date</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="489" parent="310" name="ix_stock_financial_symbol">
+      <ColNames>symbol</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="487" parent="309" name="ix_sport_category_id">
-      <ColNames>category_id</ColNames>
+    <index id="490" parent="310" name="ix_stock_financial_report_date">
+      <ColNames>report_date</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="488" parent="309" name="idx_sport_active">
-      <ColNames>is_active</ColNames>
+    <key id="491" parent="310" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="492" parent="310" name="uix_symbol_report_date">
+      <UnderlyingIndexName>uix_symbol_report_date</UnderlyingIndexName>
+    </key>
+    <column id="493" parent="311" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <Comment>自增ID</Comment>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="494" parent="311" name="symbol">
+      <Comment>股票代码</Comment>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StoredType>varchar(20)|0s</StoredType>
+    </column>
+    <column id="495" parent="311" name="trade_date">
+      <Comment>交易日期</Comment>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StoredType>date|0s</StoredType>
+    </column>
+    <column id="496" parent="311" name="open">
+      <Comment>开盘价</Comment>
+      <Position>4</Position>
+      <StoredType>float|0s</StoredType>
+    </column>
+    <column id="497" parent="311" name="high">
+      <Comment>最高价</Comment>
+      <Position>5</Position>
+      <StoredType>float|0s</StoredType>
+    </column>
+    <column id="498" parent="311" name="low">
+      <Comment>最低价</Comment>
+      <Position>6</Position>
+      <StoredType>float|0s</StoredType>
+    </column>
+    <column id="499" parent="311" name="close">
+      <Comment>收盘价</Comment>
+      <Position>7</Position>
+      <StoredType>float|0s</StoredType>
+    </column>
+    <column id="500" parent="311" name="volume">
+      <Comment>成交量</Comment>
+      <Position>8</Position>
+      <StoredType>float|0s</StoredType>
+    </column>
+    <column id="501" parent="311" name="amount">
+      <Comment>成交额</Comment>
+      <Position>9</Position>
+      <StoredType>float|0s</StoredType>
+    </column>
+    <column id="502" parent="311" name="turnover_rate">
+      <Comment>换手率（分析主力资金活跃度）</Comment>
+      <Position>10</Position>
+      <StoredType>float|0s</StoredType>
+    </column>
+    <column id="503" parent="311" name="pe_ttm">
+      <Comment>市盈率TTM（估值分析核心）</Comment>
+      <Position>11</Position>
+      <StoredType>float|0s</StoredType>
+    </column>
+    <column id="504" parent="311" name="pb">
+      <Comment>市净率</Comment>
+      <Position>12</Position>
+      <StoredType>float|0s</StoredType>
+    </column>
+    <index id="505" parent="311" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="506" parent="311" name="uix_symbol_date">
+      <ColNames>symbol
+trade_date</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="507" parent="311" name="ix_stock_history_symbol">
+      <ColNames>symbol</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="489" parent="309" name="idx_sport_model">
-      <ColNames>model_number</ColNames>
+    <index id="508" parent="311" name="ix_stock_history_trade_date">
+      <ColNames>trade_date</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="490" parent="309" name="PRIMARY">
+    <key id="509" parent="311" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="510" parent="311" name="uix_symbol_date">
+      <UnderlyingIndexName>uix_symbol_date</UnderlyingIndexName>
+    </key>
+    <column id="511" parent="312" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <Comment>自增ID</Comment>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StoredType>int|0s</StoredType>
+    </column>
+    <column id="512" parent="312" name="strategy_name">
+      <Comment>策略名称（如：MACD金叉共振、低估值高ROE选股）</Comment>
+      <Position>2</Position>
+      <StoredType>varchar(100)|0s</StoredType>
+    </column>
+    <column id="513" parent="312" name="symbol">
+      <Comment>股票代码</Comment>
+      <Position>3</Position>
+      <StoredType>varchar(20)|0s</StoredType>
+    </column>
+    <column id="514" parent="312" name="signal_date">
+      <Comment>信号触发日期</Comment>
+      <Position>4</Position>
+      <StoredType>date|0s</StoredType>
+    </column>
+    <column id="515" parent="312" name="score">
+      <Comment>综合高级评分（如AI打分或多因子得分 0-100）</Comment>
+      <Position>5</Position>
+      <StoredType>float|0s</StoredType>
+    </column>
+    <column id="516" parent="312" name="parameters">
+      <Comment>运行策略时的参数配置(JSON格式字符串)</Comment>
+      <Position>6</Position>
+      <StoredType>varchar(500)|0s</StoredType>
+    </column>
+    <column id="517" parent="312" name="created_at">
+      <Comment>分析生成时间</Comment>
+      <Position>7</Position>
+      <StoredType>datetime|0s</StoredType>
+    </column>
+    <index id="518" parent="312" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="519" parent="312" name="ix_stock_strategy_backtest_symbol">
+      <ColNames>symbol</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="520" parent="312" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
